@@ -2,9 +2,10 @@
  * @Autor: huasenjio
  * @Date: 2021-10-31 01:33:48
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-27 00:50:52
- * @Description: 支持拖拽/缩放/旋转的容器
+ * @LastEditTime: 2022-09-29 01:52:11
+ * @Description: 支持拖拽/缩放/旋转的容器，拓展vue-drag-resize开源组件。
 -->
+
 <template>
   <div ref="vdr" class="vdr" :style="positionStyle" :class="`${active || isActive ? 'active' : 'inactive'} ${contentClass ? contentClass : ''}`" @mousedown="bodyDown($event)" @touchstart="bodyDown($event)" @touchend="up($event)">
     <div :style="sizeStyle" class="vdr-container" ref="vdrContainer">
@@ -399,14 +400,6 @@ export default {
         top: { min: 0, max: parentHeight - this.height },
         bottom: { min: 0, max: parentHeight - this.height },
       };
-      // if (this.rotate > 0) {
-      //   let dragRect = this.$refs.vdrContainer.getBoundingClientRect();
-      //   position.left.min = dragRect.width - this.width;
-      //   position.right.min = dragRect.width - this.width;
-      //   position.top.min = dragRect.width - this.height;
-      //   position.bottom.min = dragRect.width - this.height;
-      // }
-      // console.log(position);
       return position;
     },
 

@@ -2,20 +2,13 @@
  * @Autor: huasenjio
  * @Date: 2022-05-06 00:24:01
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-14 01:06:02
+ * @LastEditTime: 2022-09-29 00:37:20
  * @Description: 
 -->
 <template>
   <div class="browser-tips-group">
     <div class="title">为了您更好的使用体验 请点击图标升级浏览器</div>
-    <a
-      v-for="item in tips"
-      class="icon"
-      target="_blank"
-      :href="item.url"
-      :class="item.name"
-      :key="item.name"
-    >
+    <a v-for="item in tips" class="icon" target="_blank" :href="item.url" :class="item.name" :key="item.name">
       <div class="img-box w-full"><img class="w-full" :src="item.img" /></div>
       <div class="name-box w-full">{{ item.name }}</div>
     </a>

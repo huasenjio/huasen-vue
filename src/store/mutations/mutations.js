@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-17 18:56:19
+ * @LastEditTime: 2022-09-29 01:43:55
  * @Description:
  */
 
@@ -11,23 +11,15 @@ export default {
   commitAll(state, payload) {
     const merge = function merge(s, p) {
       // 异常处理
-      if (
-        Object.prototype.toString.call(p) !== '[object Object]' ||
-        Object.keys(p).length === 0 ||
-        s === p
-      ) {
+      if (Object.prototype.toString.call(p) !== '[object Object]' || Object.keys(p).length === 0 || s === p) {
         return false;
       }
-
       Object.keys(p).forEach(key => {
         if (typeof s[key] === typeof p[key]) {
           // 类型相等时，若state值不为对象，则直接覆盖
           if (Object.prototype.toString.call(s[key]) === '[object Object]') {
             // 更新值为对象，并且不为空，则需要递归遍历，否则直接覆盖
-            if (
-              Object.prototype.toString.call(p[key]) === '[object Object]' &&
-              Object.keys(p[key].length !== 0)
-            ) {
+            if (Object.prototype.toString.call(p[key]) === '[object Object]' && Object.keys(p[key].length !== 0)) {
               merge(s[key], p[key]);
             } else {
               s[key] = p[key];
@@ -44,18 +36,3 @@ export default {
     merge(state, payload);
   },
 };
-
-// vue组件中使用实例
-// import { mapMutations } from 'vuex'
-// export default {
-//   methods: {
-//     // 1.数组形式
-//     ...mapMutations([
-//       'SAVE_ALL', // 将 `this.SAVE_ALL()` 映射为 `this.$store.commit('SAVE_ALL', payload)`
-//     ]),
-//     // 2.对象形式
-//     ...mapMutations({
-//       saveAll: 'SAVE_ALL' // 将 `this.saveAll()` 映射为 `this.$store.commit('SAVE_ALL', payload)`
-//     })
-//   }
-// }

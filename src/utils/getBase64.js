@@ -6,7 +6,7 @@
 export function getBase64(file, callback) {
   const reader = new FileReader();
   reader.addEventListener('load', () => {
-    callback(reader.result) // 监听读取返回的值
-  })
-  reader.readAsDataURL(file)
+    callback(reader.result); // 监听读取返回的值
+  });
+  reader.readAsDataURL(file);
 }

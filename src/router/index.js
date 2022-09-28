@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-19 21:52:11
+ * @LastEditTime: 2022-09-29 01:41:23
  * @Description:
  */
 import Vue from 'vue';
@@ -74,8 +74,10 @@ const routePaths = flatten(router.options.routes);
 // 路由前置守卫
 router.beforeEach((to, form, next) => {
   Nprogress.start();
-  document.title = to.meta.title ? to.meta.title : '花森屿你'; // 将路由中的属性赋值到title中
+  // 用户权限码
   let userCode = state.user.code;
+  // 将路由中的属性赋值到title中
+  document.title = to.meta.title ? to.meta.title : '花森屿你';
   // 判断权限
   if (!routePaths.includes(to.path)) {
     // 过滤动态路由
@@ -108,7 +110,8 @@ router.beforeEach((to, form, next) => {
   } else if (Number(userCode) < Number(to.meta.menuCode)) {
     next({ path: '/error403' }); // 没有权限
   } else {
-    next(); //无异常情况放行
+    //无异常情况放行
+    next();
   }
 });
 

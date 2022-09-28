@@ -2,16 +2,16 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-27 01:04:34
+ * @LastEditTime: 2022-09-29 00:36:07
  * @Description: 统一注册组件
  */
 import Vue from 'vue';
-// 引入组件
 import Toast from './toast/Toast';
-import Markdown from './markdown/Markdown.vue';
 
-// 组件注册全局引入组件
-Vue.component('HMarkdown', Markdown);
+// import Markdown from './markdown/Markdown.vue';
+
+// 全局注册组件
+// Vue.component('HMarkdown', Markdown);
 
 // 创建插件方式安装对象
 const huasen = {};

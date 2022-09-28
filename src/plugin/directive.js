@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-24 23:23:50
+ * @LastEditTime: 2022-09-29 00:47:40
  * @Description: 注册全局指令
  */
 
@@ -10,7 +10,6 @@ import Vue from 'vue';
 import store from '@/store/index.js';
 import router from '@/router/index.js';
 import RightMenu from '@/components/content/rightMenu/RightMenu.vue';
-import StyleMenu from '@/components/content/styleMenu/StyleMenu.vue';
 
 import hljs from 'highlight.js';
 import 'highlight.js/styles/default.css';
@@ -23,18 +22,20 @@ Vue.directive('rightMenu', function(el, binding) {
   el.id = id;
   // 注册监听事件
   el.addEventListener('contextmenu', e => {
+    // 屏蔽移动端
+    if ('ontouchstart' in document.documentElement) return false;
+
     // 阻止默认事件
     e.preventDefault();
     e.stopPropagation();
-    // 屏蔽移动端
-    if ('ontouchstart' in document.documentElement) return false;
-    // 移除选中效果，再新增
+    // 移除选中效果
     handleRightMenuShadow();
     el.classList.add('hs-right-menu-shadow');
+
     // 传递默认参数
-    menuId = menuId || 'styleMenu';
-    cpn = cpn || StyleMenu;
-    // 如果打开则先移除原有菜单
+    menuId = menuId || 'right-menu-id9527';
+
+    // 移除旧的菜单面板
     let node = document.getElementById(menuId);
     if (node) {
       document.body.removeChild(node);
@@ -102,6 +103,7 @@ Vue.directive('highlight', function(el) {
     hljs.highlightBlock(block);
   });
 });
+
 // 自动获取焦点指令
 Vue.directive('focus', {
   // 当被绑定的元素插入到 DOM 中会获得焦点
@@ -110,12 +112,14 @@ Vue.directive('focus', {
     el.focus();
   },
 });
+
 // 生成随机背景指令
 Vue.directive('randomColor', function(el) {
   let colors = ['#fd7e14', '#ffc107', '#33b86c', '#007bff', '#17a2b8', '#e83e8c'];
   let tempIndex = Math.floor(Math.random() * colors.length);
   el.style.backgroundColor = colors[tempIndex];
 });
+
 // 子元素依靠排队容器指令
 Vue.directive('balance', {
   inserted: function(el) {
@@ -130,6 +134,7 @@ Vue.directive('balance', {
     handleBalance(el);
   },
 });
+
 // 根据可视窗口缩放大小指令
 Vue.directive('autoScale', {
   inserted: function(el) {
@@ -191,6 +196,7 @@ function addresize(dom, fn) {
     };
   }
 }
+
 function handleBalance(el) {
   // 排除不存在子节点的问题
   if (el.childElementCount === 0) return;
@@ -225,6 +231,7 @@ function handleBalance(el) {
     item.style.marginRight = `${margin}px`;
   });
 }
+
 // 默认认为屏幕尺寸为1920*1080
 function handleScale(el) {
   let width = document.body.clientWidth;

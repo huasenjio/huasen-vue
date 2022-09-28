@@ -2,8 +2,8 @@
  * @Autor: huasenjio
  * @Date: 2021-11-27 13:23:33
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-17 18:24:29
- * @Description:
+ * @LastEditTime: 2022-09-29 01:32:50
+ * @Description: 统一操作localStorage，支持设置时间
  */
 class Storage {
   constructor() {}
@@ -32,7 +32,7 @@ class Storage {
     localStorage.removeItem(key);
   }
   clear() {
-    let flag = confirm('您确定清除本地所有存储吗？（恢复初始模式）');
+    let flag = confirm('您确定清除本地所有存储吗？');
     if (flag) {
       localStorage.clear();
     }

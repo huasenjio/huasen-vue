@@ -1,8 +1,8 @@
 // 默认主题色变量
 $--color-primary: rgba(255, 0, 0, 0.8);
-// 改变 icon 字体路径变量必需
+// 改变 icon 字体路径变量
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
-// 引入单个组件的scss文件
+// 引入单个组件的 scss 文件，达到无需编译样式就可以可制化ElementUI主题
 @import '~element-ui/packages/theme-chalk/src/button';
 @import '~element-ui/packages/theme-chalk/src/input';
 @import '~element-ui/packages/theme-chalk/src/dropdown';

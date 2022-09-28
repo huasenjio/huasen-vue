@@ -28,10 +28,3 @@ li {
 .hs-right-menu-shadow {
   box-shadow: 0 0px 0px 2px var(--red-400), 0px 0px 0px 4px var(--blue-400) !important;
 }
-
-// 继承主题样式
-.inherit-theme {
-  .inherit-text {
-    color: inherit !important;
-  }
-}

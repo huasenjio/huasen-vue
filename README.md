@@ -21,7 +21,7 @@
     ├── config // 多语言配置、
     ├── constant // 常亮配置
     ├── network // 网络模块
-    ├── plugin // 第三方库、自定义指令、事件总线、校验规则库、自定义过滤器...
+    ├── plugin
     ├── router // 路由逻辑
     ├── store // vuex
     ├── utils // 工具库

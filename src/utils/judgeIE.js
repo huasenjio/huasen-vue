@@ -2,8 +2,8 @@
  * @Autor: huasenjio
  * @Date: 2022-04-14 23:01:21
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-20 21:56:45
- * @Description:
+ * @LastEditTime: 2022-09-29 01:35:49
+ * @Description: 判断浏览器版本
  */
 
 export function judgeIE(file, callback) {

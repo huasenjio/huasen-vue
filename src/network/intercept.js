@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-08-30 22:57:28
+ * @LastEditTime: 2022-09-29 00:42:24
  * @Description: 统一配置请求拦截器
  */
 
@@ -52,7 +52,7 @@ function responseIntercept(result) {
       that.$tips('warning', result.data.msg, 'top-right', 1200);
     }
   } else if (result.data.code === 401 || result.data.code === 403) {
-    // 重新认证，权限不足
+    // 重新认证，权限不足，刷新网页
     if (result.config._errorNotify) {
       that.$tips('warning', result.data.msg, 'top-right', 1200, () => {
         window.location.reload();

@@ -2,13 +2,13 @@
  * @Autor: huasenjio
  * @Date: 2022-09-09 00:24:16
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-20 21:35:01
+ * @LastEditTime: 2022-09-29 01:50:22
  * @Description: 
 -->
 <template>
   <div v-rightMenu="{ id: 'HsEmpty' }" :style="style" class="empty">
     <main>
-      <img class="w-full" src="/img/article/empty.png" />
+      <img class="w-full" src="./img/empty.png" />
       <div class="w-full text">空空如也</div>
     </main>
   </div>
@@ -45,7 +45,7 @@ export default {
       } else if (typeof size === 'number') {
         return `${size}px`;
       } else {
-        return '435px';
+        return `${this.CONSTANT.appMinWidth}px`;
       }
     },
   },

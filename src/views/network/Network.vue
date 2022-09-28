@@ -1,12 +1,12 @@
 <template>
-    <div class="home">
-        Home
+    <div class="network">
+        Network
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Home',
+    name: 'Network',
     props: {},
     components: {},
     computed: {},
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.network {
 
 }
 </style>

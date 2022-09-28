@@ -1,7 +1,7 @@
 /**
  * 指定长度获得不重复的uid
- * @param {Number} len    长度
- * @param {Number} radix  基数位数
+ * @param {Number} len    长度 (16)
+ * @param {Number} radix  基数位数 (8)
  * @returns
  */
 export function getUid(len, radix) {

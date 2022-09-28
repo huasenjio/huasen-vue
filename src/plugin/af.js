@@ -2,9 +2,10 @@
  * @Autor: huasenjio
  * @Date: 2022-07-31 21:51:50
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-21 22:59:33
- * @Description:
+ * @LastEditTime: 2022-09-29 00:42:45
+ * @Description: 防抖类
  */
+
 export class AF {
   constructor(scope, delay = 10) {
     this.delay = delay;

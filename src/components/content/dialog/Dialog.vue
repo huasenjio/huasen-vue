@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2022-09-05 00:22:50
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-21 22:58:59
+ * @LastEditTime: 2022-09-29 01:26:45
  * @Description: 二次封装el-dialog
 -->
 <template>
@@ -26,7 +26,7 @@ export default {
   name: 'HsDialog',
 
   props: {
-    // 设置width属性，所以不会透传width属性，进行二次处理，默认435px
+    // 设置width属性，所以不会透传width属性，进行二次处理
     width: {
       type: [Number, String],
       default: '420px',
@@ -64,13 +64,11 @@ export default {
     showFooter() {
       return Object.keys(this.buttons).length === 0 ? false : true;
     },
-    // 全屏状态下，默认最小宽度为435px
+    // 全屏状态下，设置最小宽度
     dialogStyle() {
       // 如果不是全屏状态下，使用用户传入的width属性作为最小宽度
-      let minWidth = this.$attrs.fullscreen ? '435px' : this.handleSize(this.width);
-      //
+      let minWidth = this.$attrs.fullscreen ? `${this.CONSTANT.appMinWidth}px` : this.handleSize(this.width);
       let maxHeight = this.$attrs.fullscreen ? 'calc(100% - 54px - 70px)' : this.handleSize(this.maxHeight);
-
       return {
         '--dialogMinWidth': minWidth,
         '--dialogBodyMaxHeight': maxHeight,
@@ -103,7 +101,7 @@ export default {
       } else if (typeof size === 'number') {
         return `${size}px`;
       } else {
-        return '435px';
+        return `${this.CONSTANT.appMinWidth}px`;
       }
     },
   },
