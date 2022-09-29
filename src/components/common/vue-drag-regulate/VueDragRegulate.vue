@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-10-31 01:33:48
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-29 01:52:11
+ * @LastEditTime: 2022-09-30 00:07:16
  * @Description: 支持拖拽/缩放/旋转的容器，拓展vue-drag-resize开源组件。
 -->
 
@@ -344,11 +344,6 @@ export default {
       this.rotateDrag = true;
     },
     rotateMove(ev) {
-      // let dragRect = this.$refs.vdrContainer.getBoundingClientRect();
-      // let parentRect = this.$refs.vdr.offsetParent.getBoundingClientRect();
-      // if (dragRect.x < parentRect.x) {
-      //   return;
-      // }
       let targetRect = this.$refs.vdrContainer.getBoundingClientRect();
       let centerPoint = {};
       centerPoint.x = targetRect.x + targetRect.width / 2;

@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-29 00:47:40
+ * @LastEditTime: 2022-09-29 22:47:16
  * @Description: 注册全局指令
  */
 
@@ -24,17 +24,14 @@ Vue.directive('rightMenu', function(el, binding) {
   el.addEventListener('contextmenu', e => {
     // 屏蔽移动端
     if ('ontouchstart' in document.documentElement) return false;
-
     // 阻止默认事件
     e.preventDefault();
     e.stopPropagation();
     // 移除选中效果
     handleRightMenuShadow();
     el.classList.add('hs-right-menu-shadow');
-
     // 传递默认参数
     menuId = menuId || 'right-menu-id9527';
-
     // 移除旧的菜单面板
     let node = document.getElementById(menuId);
     if (node) {

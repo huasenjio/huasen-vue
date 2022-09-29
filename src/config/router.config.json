@@ -20,14 +20,6 @@
     "children": []
   },
   {
-    "path": "/network",
-    "name": "Network",
-    "menuCode": "004",
-    "component": "network/Network",
-    "title": "网络模块",
-    "children": []
-  },
-  {
     "path": "/home",
     "name": "Home",
     "menuCode": "000",

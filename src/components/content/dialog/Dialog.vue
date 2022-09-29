@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2022-09-05 00:22:50
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-29 01:26:45
+ * @LastEditTime: 2022-09-30 00:04:06
  * @Description: 二次封装el-dialog
 -->
 <template>
@@ -58,7 +58,7 @@ export default {
     },
     // 弹窗大小
     dialogWidth() {
-      return this.handleSize(this.width);
+      return this.TOOL.handleSize(this.width);
     },
     // 是否显示按钮
     showFooter() {
@@ -67,8 +67,8 @@ export default {
     // 全屏状态下，设置最小宽度
     dialogStyle() {
       // 如果不是全屏状态下，使用用户传入的width属性作为最小宽度
-      let minWidth = this.$attrs.fullscreen ? `${this.CONSTANT.appMinWidth}px` : this.handleSize(this.width);
-      let maxHeight = this.$attrs.fullscreen ? 'calc(100% - 54px - 70px)' : this.handleSize(this.maxHeight);
+      let minWidth = this.$attrs.fullscreen ? `${this.CONSTANT.appMinWidth}px` : this.TOOL.handleSize(this.width);
+      let maxHeight = this.$attrs.fullscreen ? 'calc(100% - 54px - 70px)' : this.TOOL.handleSize(this.maxHeight);
       return {
         '--dialogMinWidth': minWidth,
         '--dialogBodyMaxHeight': maxHeight,
@@ -93,16 +93,6 @@ export default {
           nodes[i].style.display = 'none';
         }
       });
-    },
-    // 处理传入尺寸数据，支持'100%' || '100px' = '100' = 100 = '100px'
-    handleSize(size) {
-      if (typeof size === 'string') {
-        return /^\d+(%|px)$/.test(size) ? size : `${size}px`;
-      } else if (typeof size === 'number') {
-        return `${size}px`;
-      } else {
-        return `${this.CONSTANT.appMinWidth}px`;
-      }
     },
   },
 };

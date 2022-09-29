@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2022-09-09 00:24:16
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-29 01:50:22
+ * @LastEditTime: 2022-09-30 00:06:21
  * @Description: 
 -->
 <template>
@@ -31,22 +31,9 @@ export default {
   computed: {
     style() {
       return {
-        '--emptyWidth': this.handleSize(this.width),
-        '--emptyHeight': this.handleSize(this.height),
+        '--emptyWidth': this.TOOL.handleSize(this.width),
+        '--emptyHeight': this.TOOL.handleSize(this.height),
       };
-    },
-  },
-
-  methods: {
-    // 处理传入尺寸数据，支持'100%' || '100px' = '100' = 100 = '100px'
-    handleSize(size) {
-      if (typeof size === 'string') {
-        return /^\d+(%|px)$/.test(size) ? size : `${size}px`;
-      } else if (typeof size === 'number') {
-        return `${size}px`;
-      } else {
-        return `${this.CONSTANT.appMinWidth}px`;
-      }
     },
   },
 };

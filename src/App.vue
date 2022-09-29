@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-08-25 01:53:35
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-29 01:37:24
+ * @LastEditTime: 2022-09-30 00:12:25
  * @Description: 入口文件
 -->
 <template>
@@ -41,22 +41,22 @@ export default {
     },
   },
   created() {
-    // 移除loading
+    // 组件挂载完成后，移除loading
     this.removeLoading();
     // 调整文档大小，避免网站在移动端网页中，无法适应屏幕的问题
     initScaleDocument();
-    this.$once('hook:beforeDestory', () => {
-      destoryScaleDocument();
-    });
   },
   mounted() {
-    // 绘制水印
+    // 绘制网站水印
     watermark();
   },
+  destroyed() {
+    // 移除文档大小的监听
+    destoryScaleDocument();
+  },
   methods: {
-    // 移除开屏动画，vue实例挂载后移除加载爱心加载效果
     removeLoading() {
-      let loading = document.getElementById('Loading');
+      let loading = document.getElementById('loading-id9527');
       if (loading) {
         document.body.removeChild(loading);
       }

@@ -2,7 +2,7 @@
  * @Autor: huasenjio
  * @Date: 2021-11-15 22:14:23
  * @LastEditors: huasenjio
- * @LastEditTime: 2022-09-29 01:36:35
+ * @LastEditTime: 2022-09-29 23:59:43
  * @Description: 统一导出工具集
  */
 import { copyObject } from './copyObject';
@@ -12,7 +12,8 @@ import { getBase64 } from './getBase64';
 import { getCDN } from './getCDN';
 import { judgeIE } from './judgeIE.js';
 import { randomInt } from './randomInt.js';
-import { getUid } from './getUid';
+import { getUid } from './getUid.js';
+import { handleSize } from './handleSize.js';
 
 export default {
   copyObject,
@@ -23,4 +24,5 @@ export default {
   judgeIE,
   randomInt,
   getUid,
+  handleSize,
 };
